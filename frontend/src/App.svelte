@@ -6,7 +6,6 @@
 <nav>
   <a href="/" use:link><h1>boring</h1></a>
   <div>
-    <a class="button button-alt" href="/about">About us</a>
     <a
       class="button"
       target="_blank"
