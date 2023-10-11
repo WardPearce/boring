@@ -1,0 +1,475 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+:root {
+    --white: rgb(236, 236, 236);
+    --background: rgb(182, 180, 180);
+    --light: #999;
+    --text: rgb(56, 56, 56);
+    --background-darker: rgb(71, 70, 70);
+    --too-cool-size: .7em;
+    --toastBarBackground: var(--background);
+    --toastBoxShadow: 3px 3px var(--text);
+    --toastBackground: var(--background-darker);
+    --toastContainerTop: 3em;
+    --toastContainerRight: 1em;
+    --placeholder-color: var(--background);
+    --list-background: var(--background);
+    --item-hover-bg: var(--background-darker);
+    --item-hover-color: var(--background);
+    --item-first-border-radius: 0;
+    --item-is-active-bg: var(--text);
+    --item-is-active-color: var(--background);
+}
+
+::selection,
+::-moz-selection {
+    background-color: var(--text);
+    color: var(--background);
+}
+
+.cm-s-chrome-devtools .CodeMirror-selected {
+    background-color: rgb(160, 158, 158) !important;
+}
+
+body {
+    color: var(--text);
+    background-color: var(--background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: FragmentMono, monospace;
+}
+
+@font-face {
+    font-family: Feldiora;
+    src: url(./fonts/Feldiora.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: FragmentMono;
+    src: url(./fonts/FragmentMono.ttf) format('truetype');
+}
+
+nav,
+footer,
+main {
+    padding: 0 .3em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .5em;
+}
+
+nav .button,
+nav button {
+    padding: .2em 1.3em;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: .3em;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+}
+
+footer ul>li {
+    font-size: var(--too-cool-size);
+}
+
+footer ul>li:not(:first-child) {
+    margin-left: 1em;
+}
+
+nav h1 {
+    font-family: Feldiora, monospace;
+    font-size: 3.3em;
+    text-transform: uppercase;
+    color: var(--text);
+    border: solid 2px;
+    width: fit-content;
+    padding: 0 .2em;
+    margin: .2em 0;
+    box-shadow: 3px 3px var(--text);
+}
+
+nav p,
+footer p {
+    color: var(--text);
+    font-size: var(--too-cool-size);
+}
+
+footer a,
+nav a {
+    color: var(--text);
+}
+
+main {
+    margin-top: 2em;
+    min-height: 76vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.button,
+button {
+    background-color: transparent;
+    font-size: 1.3em;
+    color: var(--text);
+    padding: .2em .3em;
+    font-family: Feldiora, monospace;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: solid 2px var(--text);
+    box-shadow: 3px 3px var(--text);
+}
+
+.button:hover,
+button:hover {
+    border: dashed 2px var(--text);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:disabled:hover,
+button:disabled:hover {
+    border: solid 3px var(--text);
+    cursor: not-allowed;
+}
+
+.button-sm {
+    font-size: .9em;
+}
+
+.button-alt {
+    background-color: var(--background-darker);
+    color: var(--background);
+}
+
+.button-alt:hover {
+    border: dashed 2px var(--background);
+    cursor: pointer;
+}
+
+.button-borderless {
+    border: none;
+    box-shadow: none;
+}
+
+.col {
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.select-apps {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.select-apps a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--text);
+    padding: 3em;
+    text-decoration: none;
+}
+
+.select-apps p {
+    font-size: 1.3em;
+}
+
+.select-apps a:hover {
+    outline: dashed var(--text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.select-apps i {
+    font-size: 6em;
+}
+
+.too-bored-showcase {
+    background-color: var(--text);
+    padding: .5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.too-bored-showcase a {
+    color: var(--background);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.too-bored-showcase button {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.too-bored-showcase button,
+.modal-header button {
+    text-align: center;
+}
+
+.card-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-loading p {
+    margin-left: 1em;
+}
+
+.card-header {
+    padding: .2em .8em;
+    margin-bottom: .3em;
+    border-bottom: solid var(--text) 2px;
+}
+
+.card-footer button,
+.card-footer .button {
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding: .3em .8em .3em;
+    margin-bottom: .3em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: solid var(--text) 2px;
+    width: fit-content;
+    margin-bottom: 1em;
+    box-shadow: 5px 5px var(--text);
+    /* background-color: rgb(216, 216, 216); - White */
+    /* background-color: rgb(243, 245, 118); - Yellow */
+    /* background-color: rgb(245, 118, 118); - Red */
+    /* background-color: rgb(152, 118, 245); - Purple */
+    /* background-color: rgb(118, 141, 245); - Blue */
+}
+
+.card-body {
+    align-items: flex-end;
+    padding: .2em .8em;
+    overflow-y: auto;
+}
+
+.card-body ul {
+    list-style: none;
+}
+
+.card-body ul:not(:last-child) {
+    overflow: auto;
+    margin-bottom: 1.3em;
+}
+
+input {
+    background-color: transparent;
+    border: solid var(--text) 2px;
+    display: block;
+    padding: .2em .5em;
+    height: 2.4em;
+    font-size: 1em;
+    font-family: FragmentMono, monospace;
+    width: 100%;
+}
+
+textarea {
+    background-color: transparent;
+    border: solid var(--text) 2px;
+    display: block;
+    padding: .2em .5em;
+    font-size: 1em;
+    font-family: FragmentMono, monospace;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid var(--light);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(56, 56, 56, 0.658);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 5%;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.modal-body {
+    padding: 1em;
+    background-color: var(--background);
+    pointer-events: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+    width: 100%;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5em;
+}
+
+input:focus,
+textarea:focus {
+    border: dashed var(--text) 2px;
+    outline: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .content {
+        max-width: 95vw;
+        top: 30%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .header {
+        flex-direction: column-reverse;
+        row-gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .content {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    nav {
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 1em;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .col {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .select-apps {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        width: 99%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .card-body {
+        padding: .3em .4em 1em;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .select-apps a {
+        flex-direction: column;
+        padding: 3em 35vw;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    p {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    nav div {
+        display: flex;
+    }
+}
